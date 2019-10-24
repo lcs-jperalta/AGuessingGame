@@ -23,6 +23,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Submit Guess"/>
+                                <connections>
+                                    <action selector="checkGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfe-Br-Rey"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your guess here." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAc-C2-DuP">
                                 <rect key="frame" x="41" y="433" width="333" height="30"/>
