@@ -25,18 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        // Make an object named 'synthesizer', which is an instance of the class 'AVSpeechSynthesizer'
-        let synthesizer = AVSpeechSynthesizer()
-        
-        // Make a string that contains what we want the computer to say
-        let message = "I'm thinking of a number between 1 and 100."
-        
-        // Make an object named 'utterance', which is an instance of the class AVSpeechUtterance
-        let utterance = AVSpeechUtterance(string: message)
-        
-        // Speak the message
-        synthesizer.speak(utterance)
+        // Speak and print the instructions when the view is loaded
+        speak(message: "I'm thinking of a number between 1 and 100.")
         
     }
     // Will be used to check the guess
@@ -52,51 +42,33 @@ class ViewController: UIViewController {
         // Give feedback to the user
         
         if guessNumber > targetNumber {
-            print("Guess lower next time")
-            
-            // Make an object named 'synthesizer', which is an instance of the class 'AVSpeechSynthesizer'
-            let synthesizer = AVSpeechSynthesizer()
-            
-            // Make a string that contains what we want the computer to say
-            let message = "Guess lower next time."
-            
-            // Make an object named 'utterance', which is an instance of the class AVSpeechUtterance
-            let utterance = AVSpeechUtterance(string: message)
-            
-            // Speak the message
-            synthesizer.speak(utterance)
+            // Speak and print the message if submitted guess is lower than target number
+            speak(message: "Guess lower next time")
             
         } else if guessNumber < targetNumber {
-            print("Guess higher next time")
-            
-            // Make an object named 'synthesizer', which is an instance of the class 'AVSpeechSynthesizer'
-            let synthesizer = AVSpeechSynthesizer()
-            
-            // Make a string that contains what we want the computer to say
-            let message = "Guess higher next time."
-            
-            // Make an object named 'utterance', which is an instance of the class AVSpeechUtterance
-            let utterance = AVSpeechUtterance(string: message)
-            
-            // Speak the message
-            synthesizer.speak(utterance)
+            // Speak and print the message if submitted guess is higher than target number
+            speak(message: "Guess higher next time")
             
         } else {
-            print("You are correct!")
-            
-            // Make an object named 'synthesizer', which is an instance of the class 'AVSpeechSynthesizer'
-            let synthesizer = AVSpeechSynthesizer()
-            
-            // Make a string that contains what we want the computer to say
-            let message = "You are correct!"
-            
-            // Make an object named 'utterance', which is an instance of the class AVSpeechUtterance
-            let utterance = AVSpeechUtterance(string: message)
-            
-            // Speak the message
-            synthesizer.speak(utterance)
+            // Speak and print the message if submitted guess is right
+            speak(message: "You are correct")
             
         }
+    }
+    
+    // A function that will speak whatever message is provided
+    func speak(message: String) {
+        // Make an object named 'synthesizer', which is an instance of the class 'AVSpeechSynthesizer'
+        let synthesizer = AVSpeechSynthesizer()
+        
+        // Make an object named 'utterance', which is an instance of the class AVSpeechUtterance
+        let utterance = AVSpeechUtterance(string: message)
+        
+        // Speak the message
+        synthesizer.speak(utterance)
+        
+        // Print the message
+        print(message)
     }
     
     
